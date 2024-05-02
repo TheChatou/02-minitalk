@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:55:41 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/03/27 15:12:42 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/05/02 13:14:55 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	sig_h(int sig)
 	else if (sig == SIGUSR1)
 	{
 		i++;
-		ft_printf("Number of bytes : %d\n", (i / 8) - 1);
+		ft_printf("\n* Sent and received : \t*\n");
+		ft_printf("* %d bytes \t\t*\n", (i / 8) - 1);
 	}
 }
 
@@ -68,6 +69,8 @@ int	main(int argc, char **argv)
 	if (argc == 3)
 	{
 		pid = ft_atoi(argv[1]);
+		if (pid >= -1 && pid <= 1)
+			return (ft_putstr_fd("Wrong pid !\n", 2), 0);
 		act.sa_handler = sig_h;
 		act.sa_flags = SA_SIGINFO;
 		sigemptyset(&act.sa_mask);
@@ -79,8 +82,7 @@ int	main(int argc, char **argv)
 			char_bin(argv[2][i], pid);
 			i++;
 		}
-		char_bin('\0', pid);
-		return (0);
+		return (char_bin('\0', pid), 0);
 	}
 	return (0);
 }
