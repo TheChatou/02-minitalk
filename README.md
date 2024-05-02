@@ -1,2 +1,4 @@
-# 02-minitalk
-Cercle 02 - Projet minitalk
+42 Paris - Cercle 02 - Projet minitalk.c
+
+![chrome-capture-2024-5-2 (5)](https://github.com/TheChatou/02-minitalk/assets/144605451/5549c5cd-3639-45d3-bc8e-5401a4a96598)
+
